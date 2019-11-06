@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~ng-snotify/styles/material";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+button:focus {border:0;outline:0 none !important;}
+body {
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  font-family: 'Blinker', sans-serif !important;
+}
+
+.color_txt {
+  color: #475f7b !important;
+}
+
+
+.selector {
+  background-image: url(https://cdn.puntosleal.com/assets/img/banner-principal.png);
+  height: auto;
+  background-position: center;
+  background-size: cover;
+}

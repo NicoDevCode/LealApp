@@ -1,0 +1,62 @@
+<div class="container-fluid modal-ancho mt-4">
+  <div class="row">
+    <div class="col-md-12">
+        <i class="btn_close far fa-times-circle" (click)="onNoClick()"></i>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h2>
+        DETALLE DE TRANSACCION
+      </h2>
+    </div>
+    <div class="card-body">
+      <table class="centered">
+        <thead>
+        <tr>
+          <th>
+            user Id
+          </th>
+          <th>
+            Fecha de registro
+          </th>
+          <th>
+            Hora de registro
+          </th>
+          <th>
+            Puntos
+          </th>
+          <th>
+            Tipo
+          </th>
+          <th>
+            Valor
+          </th>
+        </tr>
+        </thead>
+        <tbody class="three">
+        <tr>
+          <td data-titulo="user Id">
+            <div class="content"><span class="display"> {{data_detalle.userId}} </span></div>
+          </td>
+          <td data-titulo="Fecha de registro">
+            <div class="content"><span class="display font-weight-bold"> {{data_detalle.date}}  </span></div>
+          </td>
+          <td data-titulo="Hora de registro">
+            <div class="content"><span class="display font-weight-bold"> {{data_detalle.time}}  </span></div>
+          </td>
+          <td data-titulo="Puntos">
+            <div class="content"><span class="display"> {{data_detalle.points}} </span></div>
+          </td>
+          <td data-titulo="Tipo">
+            <div class="content"><span class="display"> {{data_detalle.type}} </span></div>
+          </td>
+          <td data-titulo="Valor">
+            <div><span class="display"> {{data_detalle.value}} </span></div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

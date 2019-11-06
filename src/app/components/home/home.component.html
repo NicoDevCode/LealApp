@@ -1,0 +1,118 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-2 col-6">
+      <mat-form-field>
+        <input type="number" matInput placeholder="filtrar por puntos" [(ngModel)]="filterPoint">
+      </mat-form-field>
+    </div>
+    <div class="col-md-2 col-6">
+      <mat-form-field>
+        <input type="number" matInput placeholder="filtrar por valor" [(ngModel)]="filtervalue">
+      </mat-form-field>
+    </div>
+    <div class="col-md-2 col-6">
+      <mat-form-field class="mr-2">
+        <mat-select [(value)]="filterType" placeholder="filtrar por tipo">
+          <mat-option disabled>Todos</mat-option>
+          <mat-option value="redeem">Redeem</mat-option>
+          <mat-option value="earn">Earn</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-2 col-6">
+      <mat-form-field class="mr-2">
+        <input matInput type="date" placeholder="Buscar por fecha inicio" [(ngModel)]="min_date">
+      </mat-form-field>
+    </div>
+    <div class="col-md-2 col-6">
+      <mat-form-field class="mr-2">
+        <input matInput type="date" placeholder="Buscar por fecha Fin" [(ngModel)]="max_date">
+      </mat-form-field>
+    </div>
+    <div class="col-md-2 col-6 btns">
+      <button  mat-raised-button color="primary" (click)="filterDate()">
+        Filtrar
+      </button>
+      <button  mat-raised-button class="btn_limpiar" (click)="clean_inputs()" >
+        Limpiar
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-container *ngIf="data_user.length > 0; else nohave">
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h2>
+        HISTORIAL DE TRANSACCIONES
+      </h2>
+    </div>
+    <div class="card-body">
+      <ng-container *ngIf="!loading; else loader">
+        <table class="centered">
+          <thead>
+          <tr>
+            <th>
+              Fecha de registro
+            </th>
+            <th>
+              Hora de registro
+            </th>
+            <th>
+              Tipo
+            </th>
+            <th>
+              Detalle
+            </th>
+          </tr>
+          </thead>
+          <tbody class="three" *ngIf="data_user">
+          <tr *ngFor="let bodydata of data_user">
+            <td data-titulo="Fecha de registro">
+              <div class="content"><span class="display font-weight-bold"> {{bodydata.date}}  </span></div>
+            </td>
+            <td data-titulo="Hora de registro">
+              <div class="content"><span class="display font-weight-bold"> {{bodydata.time}}  </span></div>
+            </td>
+            <td data-titulo="Tipo">
+              <div class="content"><span class="display font-weight-bold"> {{bodydata.type}}  </span></div>
+            </td>
+            <td data-titulo="Acciones">
+              <div>
+              <span class="display">
+                  <button (click)="openDialog(bodydata)" mat-raised-button color="primary">
+                    <i class="far fa-eye"></i>
+                  </button>
+              </span>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </ng-container>
+    </div>
+  </div>
+</div>
+</ng-container>
+<ng-template #loader>
+  <div class="container">
+    <div class="row">
+      <div align="center" class="col-md-12">
+        <mat-spinner></mat-spinner>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #nohave>
+  <div class="container">
+    <div class="row">
+      <div align="center" class="col-md-12">
+        <h3>
+          No hay datos con este criterio de busqueda
+        </h3>
+      </div>
+    </div>
+  </div>
+</ng-template>
